@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kalopa"
+version = "0.1.0"
+description = "Kalopa Robotics payload interface and command module simulator"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Kalopa Robotics", email = "dtynan@kalopa.com" }]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.optional-dependencies]
+serial = ["pyserial>=3.5"]          # pip install "kalopa[serial]" on the real payload
+i2c = ["smbus2>=0.4"]               # for the Atlas sensor examples
+
+[project.scripts]
+kalopa-cmsim = "kalopa.cmsim:main"  # puts a `kalopa-cmsim` command on the PATH
+
+[project.urls]
+Homepage = "https://kalopa.com"
+
+[tool.setuptools]
+packages = ["kalopa"]
